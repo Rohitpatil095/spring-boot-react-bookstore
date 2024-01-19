@@ -1,9 +1,12 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Navbar } from "./components/navbar/header";
 
 function App() {
   return (
-    <h1>Hi developers..</h1>
+    <>
+      <Navbar />
+    </>
   );
 }
 
