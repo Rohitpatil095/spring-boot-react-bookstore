@@ -1,9 +1,9 @@
 package com.luv2code.bookstoreapplication.configuration;
 
 import com.luv2code.bookstoreapplication.entity.Book;
+import com.luv2code.bookstoreapplication.entity.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.core.mapping.HttpMethods;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -21,7 +21,11 @@ public class AppRepositoryConfig implements RepositoryRestConfigurer {
                 HttpMethod.DELETE
         };
         config.exposeIdsFor(Book.class);
+        config.exposeIdsFor(Review.class);
+
         blockMethodesController(Book.class,config, blockedMethods);
+        blockMethodesController(Review.class, config,blockedMethods);
+
 
         cors.addMapping(config.getBasePath()+"/**")
                 .allowedOrigins(allowedOrigin);
